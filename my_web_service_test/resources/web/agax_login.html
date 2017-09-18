@@ -1,0 +1,28 @@
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<script type="text/javascript" src="/res/jquery.js"></script>
+</head>
+<h1>使用ajax登录</h1>
+
+<form id="dlg_form">
+	<label> 姓名:</label>
+	<input name="name" style="padding: 2px; width: 135px; border: 1px solid #A4BED4;" value="jack"/>
+	<label> 密码:</label>
+	<input name="password" style="padding: 2px; width: 135px; border: 1px solid #A4BED4;" value="123456"/>
+	<input value="确定"  type="button" onclick="mysubmit()"/>
+</form>
+<script type="text/javascript">
+	function mysubmit(){
+	   $.ajax({
+                url:"/ajaxlogin",
+                type:"post",
+                data:$('#dlg_form').serialize(),// 序列化表单值  
+                success:function(data){
+                    alert(data);
+                },
+                error:function(e){
+                    alert(e);
+                }
+            })
+	}
+</script>
